@@ -3,8 +3,7 @@ const NUMBERS_TO_CALCULATE_QUANTITY = 2
 const isValidNumber = number => Boolean(
     typeof number === `number` &&
     !isNaN(number) &&
-    number > -Infinity &&
-    number < Infinity
+    number !== number / 0
 )
 
 const Calculator = class {
