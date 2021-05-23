@@ -57,27 +57,7 @@ const concatStrings = (string, separator) => {
     }
 }
 
-// Всегда возвращает функцию, нуждается в явном приведении к строке:
-const concatStrings2 = (string, separator) => {
-    if (typeof separator !== `string`) separator = ``
-
-    let result = typeof string !== `string` ? `` : string
-    let isFilled = typeof string !== `string`
-    
-    const add = string => {
-        if (typeof string !== `string`) isFilled = true
-        if (!isFilled) result += (separator + string)
-
-        return add
-    }
-    add.toString = () => result
-
-    return add
-}
-
-
 module.exports = {
     Calculator,
     concatStrings,
-    concatStrings2,
 }
