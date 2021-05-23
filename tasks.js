@@ -1,14 +1,8 @@
 const NUMBERS_TO_CALCULATE_QUANTITY = 2
 
-const isValidNumber = number => Boolean(
-    typeof number === `number` &&
-    !isNaN(number) &&
-    number !== number / 0
-)
-
 const Calculator = class {
     constructor(...numbers) {
-        if (numbers.length !== NUMBERS_TO_CALCULATE_QUANTITY || !numbers.every(isValidNumber)) throw new Error(``);
+        if (numbers.length !== NUMBERS_TO_CALCULATE_QUANTITY || !numbers.every(Number.isFinite)) throw new Error(``);
 
         [this._x, this._y] = numbers
 
@@ -21,12 +15,12 @@ const Calculator = class {
     }
 
     setX(number) {
-        if (!isValidNumber(number)) throw new Error(``)
+        if (!Number.isFinite(number)) throw new Error(``)
         this._x = number
     }
     
     setY(number) {
-        if (!isValidNumber(number)) throw new Error(``)
+        if (!Number.isFinite(number)) throw new Error(``)
         this._y = number
     }
 
